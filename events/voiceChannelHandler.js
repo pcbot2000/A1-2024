@@ -98,7 +98,6 @@ const sendOrUpdateCentralizedEmbed = async (client, guild) => {
                         { label: 'Delete Channel', value: 'delete_channel' },
                         { label: 'Don\'t Delete on Leave', value: 'dont_delete_on_leave' },
                         { label: 'Edit Channel Name', value: 'edit_channel_name' }
-                        { label: 'Set Limit', value: 'set_limit' }
                     ])
             );
 
@@ -174,13 +173,13 @@ const handleVoiceStateUpdate = async (client, oldState, newState) => {
     if (newState.channelId === voiceChannelId) {
         try {
             const newChannel = await newState.guild.channels.create({
-                name: `${member.user.usernickname}'s Roome`,
+                name: `${member.user.usernickname}'s Room`,
                 type: ChannelType.GuildVoice,
                 parent: newState.channel.parentId,
                 permissionOverwrites: [
                     {
                         id: member.user.id,
-                        allow: [PermissionsBitField.Flags.ManageChannels, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak, PermissionsBitField.Flag.Message]
+                        allow: [PermissionsBitField.Flags.ManageChannels, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak]
                     },
                     {
                         id: newState.guild.roles.everyone,
