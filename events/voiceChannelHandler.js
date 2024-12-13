@@ -198,7 +198,7 @@ const handleVoiceStateUpdate = async (client, oldState, newState) => {
                 isTemporary: true
             });
 
-            deleteChannelAfterTimeout(client, newChannel.id, 6 * 60 * 60 * 1000);
+            deleteChannelAfterTimeout(client, newChannel.id, 1 * 1 * 1 * 1000);
         } catch (error) {
             console.error('Error creating voice channel:', error);
         }
