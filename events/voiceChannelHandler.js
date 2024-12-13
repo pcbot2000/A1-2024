@@ -173,7 +173,7 @@ const handleVoiceStateUpdate = async (client, oldState, newState) => {
     if (newState.channelId === voiceChannelId) {
         try {
             const newChannel = await newState.guild.channels.create({
-                name: `${member.user.nickname} Room`,
+                name: `${member.user.displayName} Room`,
                 type: ChannelType.GuildVoice,
                 parent: newState.channel.parentId,
                 permissionOverwrites: [
