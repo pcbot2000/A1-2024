@@ -179,7 +179,7 @@ const handleVoiceStateUpdate = async (client, oldState, newState) => {
                 permissionOverwrites: [
                     {
                         id: member.user.id,
-                        allow: [PermissionsBitField.Flags.ManageChannels, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak]
+                        allow: [PermissionsBitField.Flags.ManageChannels, PermissionsBitField.Flags.Connect, PermissionsBitField.Flags.Speak, PermissionsBitField.Flags.SendMessages]
                     },
                     {
                         id: newState.guild.roles.everyone,
