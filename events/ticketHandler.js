@@ -111,7 +111,7 @@ async function handleSelectMenu(interaction, client) {
     }
 
     const ticketChannel = await guild.channels.create({
-        name: `${user.username}-${ticketType}-ticket`,
+        name: `${user.displayName}-${ticketType}-ticket`,
         type: ChannelType.GuildText,
         permissionOverwrites: [
             {
