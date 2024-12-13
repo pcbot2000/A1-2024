@@ -29,7 +29,7 @@ setInterval(async () => {
         const now = Date.now();
         const outdatedChannels = await voiceChannelCollection.find({
             isTemporary: true,
-            createdAt: { $lt: new Date(now - 6 * 60 * 60 * 1000) } 
+            createdAt: { $lt: new Date(now - 1 * 10 * 10 * 1000) } 
         }).toArray();
 
         for (const channel of outdatedChannels) {
@@ -198,7 +198,7 @@ const handleVoiceStateUpdate = async (client, oldState, newState) => {
                 isTemporary: true
             });
 
-            deleteChannelAfterTimeout(client, newChannel.id, 1 * 1 * 1 * 1000);
+            deleteChannelAfterTimeout(client, newChannel.id, 1 * 10 * 10 * 1000);
         } catch (error) {
             console.error('Error creating voice channel:', error);
         }
